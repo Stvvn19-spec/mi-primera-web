@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}TechStore{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body data-usuario="{{ session.get('usuario','') }}">
+
+<header class="topbar">
+    <div class="logo">📱 TechStore</div>
+
+    {% if session.usuario %}
+        <input type="text" id="buscador" placeholder="Buscar productos...">
+    {% endif %}
+
+    <nav>
+        {% if session.usuario %}
+            <span class="user">👤 {{ session.usuario }}</span>
+            <a href="/productos">Productos</a>
+            <a href="/carrito">Carrito 🛒</a>
+            <a href="/subir">Vender</a>
+            <a href="/logout">Salir</a>
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/registro">Registro</a>
+        {% endif %}
+    </nav>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    © 2026 TechStore - Tecnología para todos
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

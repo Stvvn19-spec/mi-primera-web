@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="form-box">
+    <h2>Registro</h2>
+    <form method="POST">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="correo" placeholder="Correo" required>
+        <div style="position:relative;">
+            <input type="password" id="password" name="password" placeholder="Contraseña" required>
+            <span onclick="verPassword()" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); cursor:pointer;">
+                👁️
+            </span>
+        </div>
+        <button>Crear cuenta</button>
+    </form>
+    <p>¿Ya tienes cuenta? <a href="/login">Inicia sesión</a></p>
+</div>
+{% endblock %}
