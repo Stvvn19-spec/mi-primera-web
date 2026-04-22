@@ -62,7 +62,7 @@ productos = [
 ]
 
 @app.route("/")
-def inicio():
+def index():
     return render_template("inicio.html")
 
 @app.route("/productos")
